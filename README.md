@@ -5,21 +5,18 @@ This project demonstrates how to generate a square wave using microsecond delay 
 
 A hardware timer (TIM2) is configured to provide precise microsecond timing, and a GPIO pin is toggled to produce a square wave that can be observed on an oscilloscope.
 
----
 
 ### Objective
 - Generate square wave using microsecond delay
 - Understand timer-based delay
 - Verify output using oscilloscope
 
----
 
 ### Hardware Used
 - STM32F401CDU6 (or similar STM32 board)
 - Oscilloscope
 - Jumper wires
 
----
 
 ### Working Principle
 TIM2 is configured such that:
@@ -28,7 +25,6 @@ TIM2 is configured such that:
 
 The timer counts in microseconds, and the GPIO pin is toggled after a fixed delay, producing a square wave.
 
----
 
 ### Timer Configuration
 - Timer: TIM2  
@@ -37,7 +33,6 @@ The timer counts in microseconds, and the GPIO pin is toggled after a fixed dela
 - Timer Frequency: 1 MHz  
 - Resolution: 1 µs  
 
----
 
 ### Code Implementation
 
@@ -47,6 +42,7 @@ HAL_TIM_Base_Start(&htim2);
 ```
 Starts TIM2 so that it begins counting. Without this, delay will not work.
 
+
 ```c
 while (1)
 {
@@ -54,12 +50,11 @@ while (1)
     delay_us(100);
 }
 ```
-This function toggles the state of the GPIO pin (PA8).
-
 **Functionality:**
 - If the pin is LOW, it becomes HIGH  
 - If the pin is HIGH, it becomes LOW  
 By toggling the pin with a fixed delay, a square wave signal is generated.
+
 
 ```c
 void delay_us(uint32_t us)
