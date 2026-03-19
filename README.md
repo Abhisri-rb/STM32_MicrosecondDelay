@@ -36,13 +36,15 @@ The timer counts in microseconds, and the GPIO pin is toggled after a fixed dela
 
 ### Code Implementation
 
-### 🔹 Start Timer
+### Start Timer
 ```c
 HAL_TIM_Base_Start(&htim2);
 ```
 Starts TIM2 so that it begins counting. Without this, delay will not work.
 
+---
 
+### Microsecond Delay Function
 ```c
 while (1)
 {
@@ -55,7 +57,9 @@ while (1)
 - If the pin is HIGH, it becomes LOW  
 By toggling the pin with a fixed delay, a square wave signal is generated.
 
+---
 
+### Square Wave Generation
 ```c
 void delay_us(uint32_t us)
 {
